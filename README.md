@@ -6,6 +6,17 @@ settings, but this script allows a world of possibilities that weren't really av
 
 **Be aware that the stylesheet included is still to be considered in alpha and may require some tweaking.**
 
+## How to build it
+
+Clone the repo and then run the following commands:
+
+```sh
+npm install
+npm run build
+```
+
+After this, you should see a "build" folder with the javascript and css files within.
+
 ## Usage
 
 To use it, you should first enqueue the Blaze Slider library (personally, I suggest downloading it and
