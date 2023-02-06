@@ -25,8 +25,7 @@ var convertToSlider = (function () {
             if (!results) continue;
 
             let colSize = results[0];
-            // slide.classList.remove('et_pb_column', colSize);
-            slide.classList.remove(colSize);
+            slide.classList.remove('et_pb_column', colSize);
             blazeTrack.appendChild(slide);
         }
 
