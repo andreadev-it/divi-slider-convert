@@ -1,0 +1,16 @@
+{
+  "name": "divi-module-to-slider",
+  "version": "1.0.0",
+  "description": "A little script to convert some Divi modules to slider using the BlazeSlider library",
+  "main": "divi-elements-to-slider.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "tsc && node ./minify.js"
+  },
+  "author": "Andrea Dragotta",
+  "license": "ISC",
+  "devDependencies": {
+    "minify": "^9.2.0"
+  },
+  "type": "module"
+}

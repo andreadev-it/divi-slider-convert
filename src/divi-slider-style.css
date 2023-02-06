@@ -1,0 +1,83 @@
+.blaze-slider {
+    --blaze-pagination-padding: 20px;
+    --blaze-pagination-gap: 10px;
+    --blaze-button-fg: #fff;
+    --blaze-button-bg: #444;
+    --blaze-disabled-btn: #aaa;
+    --blaze-pagination-bg: #444;
+    --blaze-pagination-bg-active: #000;
+}
+
+.blaze-slider.no-hidden-track .blaze-track-container {
+    overflow: visible;
+}
+
+.blaze-slider .custom-pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-block: var(--blaze-pagination-padding);
+    gap: 40px;
+}
+
+.blaze-slider.no-arrows button.blaze-prev,
+.blaze-slider.no-arrows button.blaze-next {
+    display: none !important;
+}
+
+.blaze-slider button.blaze-prev,
+.blaze-slider button.blaze-next {
+    font-family: 'ETmodules';
+    font-size: 20px;
+    border: solid 0px;
+    padding: 10px;
+    border-radius: 1000px;
+    background-color: var(--blaze-button-bg);
+    color: var(--blaze-button-fg);
+    cursor: pointer;
+}
+
+/* Button styles */
+.blaze-slider.arrows-around button.blaze-prev,
+.blaze-slider.arrows-around button.blaze-next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-100%);
+}
+
+.blaze-slider.arrows-around button.blaze-prev {
+    left: -50px;
+}
+
+.blaze-slider.arrows-around button.blaze-next {
+    right: -50px;
+}
+
+.blaze-slider.end button.blaze-next {
+    background-color: var(--blaze-disabled-btn);
+}
+
+.blaze-slider.start button.blaze-prev {
+    background-color: var(--blaze-disabled-btn);
+}
+
+/* Pagination for the slider */
+.blaze-pagination {
+    display: flex;
+    gap: var(--blaze-pagination-gap);
+}
+
+.blaze-pagination > button {
+    color: var(--blaze-pagination-bg);
+    background-color: var(--blaze-pagination-bg);
+    border: solid 0px;
+    border-radius: 100px;
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+}
+
+.blaze-pagination > button.active {
+    background-color: var(--blaze-pagination-bg-active);
+    color: var(--blaze-pagination-bg-active);
+}
