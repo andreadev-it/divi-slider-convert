@@ -33,6 +33,31 @@ var convertToSlider = (function () {
     }
 
     /**
+    * This function will change the structure of a Divi column to adapt it to the BlazeSlider
+    * Original structure: .et_pb_column > .et_pb_module
+    * Target structure:   .blaze-slider > .blaze-container > .blaze-track-container > .blaze-track > slides
+    */
+    function adaptColumnStructure(column : HTMLElement) {
+        let blazeContainer = document.createElement('div');
+        blazeContainer.classList.add('blaze-container');
+        let blazeTrackContainer = document.createElement('div');
+        blazeTrackContainer.classList.add('blaze-track-container');
+        let blazeTrack = document.createElement('div');
+        blazeTrack.classList.add('blaze-track');
+
+        blazeContainer.appendChild(blazeTrackContainer);
+        blazeTrackContainer.appendChild(blazeTrack);
+
+        let slides = [...column.children];
+        
+        for (let slide of slides) {
+            blazeTrack.appendChild(slide);
+        }
+
+        column.appendChild(blazeContainer);
+    }
+
+    /**
     * This function will change the structure of a Divi blog adapt it to the BlazeSlider
     * Original structure: .et_pb_posts > .et_pb_ajax_pagination_container > article.et_pb_post
     * Target structure:   .blaze-slider > .blaze-container > .blaze-track-container > .blaze-track > slides
@@ -135,6 +160,7 @@ var convertToSlider = (function () {
         if (sliderElement.classList.contains('et_pb_section')) type = "section";
         else if (sliderElement.classList.contains('et_pb_row')) type = "row";
         else if (sliderElement.classList.contains('et_pb_posts')) type = "blog";
+        else if (sliderElement.classList.contains('et_pb_column')) type = "column";
 
         switch (type) {
             case 'section':
@@ -142,6 +168,9 @@ var convertToSlider = (function () {
                 break;
             case 'row':
                 adaptRowStructure(sliderElement);
+                break;
+            case 'column':
+                adaptColumnStructure(sliderElement);
                 break;
             case 'blog':
                 adaptBlogStructure(sliderElement);

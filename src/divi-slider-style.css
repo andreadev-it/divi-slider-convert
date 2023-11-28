@@ -65,6 +65,8 @@
 .blaze-pagination {
     display: flex;
     gap: var(--blaze-pagination-gap);
+    flex-wrap: wrap;
+    justify-content: center;
 }
 
 .blaze-pagination > button {
